@@ -1,6 +1,8 @@
 FROM debian:9.2
 
 RUN sed -i 's/stable\/updates/stable-security\/updates/' /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
